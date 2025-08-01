@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R-Learn</title>
+    <link rel="stylesheet" href="Design web.css">
+</head>
+<body>
+
+    <header class="hero-banner">
+        <div class="banner-content">
+            <h1>Selamat Datang di Rafi-Learning</h1>
+            <p>Kursus online dan platform pembelajaran digital telah menjadi alternatif yang semakin 
+                populer dan relevan bagi individu maupun organisasi yang ingin meningkatkan 
+                pengetahuan, keterampilan, dan kompetensi. Fleksibilitas waktu dan tempat, biaya yang 
+                seringkali lebih terjangkau, serta akses ke berbagai materi dan ahli dari seluruh dunia 
+                menjadi daya tarik utama dari model pembelajaran ini. </p>
+        </div>
+    </header>
+
+    <main>
+        <section id="about" class="section-padding">
+            <img src="./Logo R-Learn.png" width="350px" alt="Logo Rafi"/>
+            <h2>Tentang Perusahaan</h2>
+            <p>R-Learn adalah perusahaan yang bergerak di bidang edukasi digital.
+                Kami berdedikasi untuk mengoptimalkan pengalaman belajar digital.
+                Dengan tim yang berpengalaman dan komitmen terhadap kualitas, kami akan melayani berbagai klien dengan solusi inovatif dan efektif.
+                Misi kami adalah memberikan nilai terbaik bagi pelanggan dan masyarakat.
+                Kami percaya bahwa teknologi, kreativitas, kolaborasi adalah kunci untuk mencapai keunggulan.
+                Kami terus berinovasi untuk memenuhi tantangan masa depan dan memastikan kepuasan pelanggan yang berkelanjutan.</p>
+        </section>
+
+        <section id="vision-mission" class="section-padding section-alt-bg">
+            <div class="container">
+                <h2>Visi & Misi</h2>
+                <div class="vm-grid">
+                    <div class="vm-item">
+                        <h3>Visi</h3>
+                        <p>Menjadi platform edukasi digital terkemuka yang memberdayakan individu dan 
+                            organisasi untuk mencapai potensi penuh mereka melalui pembelajaran yang relevan, 
+                            inovatif, dan mudah diakses. </p>
+                    </div>
+                    <div class="vm-item">
+                        <h3>Misi</h3>
+                        <ul>
+                            <li>Memberikan Dampak Positif pada Pengembangan Sumber Daya Manusia.</li>
+                            <li>berkontribusi secara aktif dalam meningkatkan pengetahuan, keterampilan, dan 
+                                kompetensi individu dan organisasi.</li>
+                            <li>mendorong pertumbuhan pribadi dan profesional.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section-padding">
+            <h2>Hubungi Kami</h2>
+            <p>Silakan isi formulir di bawah ini untuk menghubungi kami. Kami akan segera merespons pesan Anda.</p>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Nama Lengkap:</label>
+                    <input type="text" placeholder="Tulis Nama Anda" id="name" name="name" required>
+                    <span class="error-message" id="nameError"></span>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" placeholder="coba123@gmail.com" id="email" name="email" required>
+                    <span class="error-message" id="emailError"></span>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Nomor Telepon:</label>
+                    <input type="tel" id="phone" placeholder="082102989289" name="phone" pattern="[0-9]{10,15}" title="Nomor telepon harus antara 10 sampai 15 digit angka." required>
+                    <span class="error-message" id="phoneError"></span>
+                </div>
+                <div class="form-group">
+                    <label>Jenis Kelamin</label>
+                    <input type="radio" value="Laki-laki" name="Jenis-Kelamin" id="genderMale">Laki-laki
+                    <input type="radio" value="Perempuan" name="Jenis-Kelamin" id="genderFemale">Perempuan
+                    </div>
+                <div class="form-group">
+                    <label for="message">Pesan:</label>
+                    <br/>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                    <span class="error-message" id="messageError"></span>
+                </div>
+                <button type="submit">Kirim Pesan</button>
+                
+                <div id="formStatus" class="form-status"></div> 
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 R-Learn. Hak Cipta Dilindungi Undang-Undang.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>

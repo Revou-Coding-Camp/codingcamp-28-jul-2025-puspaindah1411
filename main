@@ -1,0 +1,115 @@
+document.addEventListener('DOMContentLoaded', function() {
+    // Mendapatkan elemen formulir dan input
+    const contactForm = document.getElementById('contactForm');
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const phoneInput = document.getElementById('phone');
+    const messageInput = document.getElementById('message');
+    const genderInputs = document.querySelectorAll('input[name="Jenis-Kelamin"]'); // Untuk radio button Jenis Kelamin
+
+    // Mendapatkan elemen untuk menampilkan pesan error
+    const nameError = document.getElementById('nameError');
+    const emailError = document.getElementById('emailError');
+    const phoneError = document.getElementById('phoneError');
+    const messageError = document.getElementById('messageError');
+    const formStatus = document.getElementById('formStatus');
+
+    // Menambahkan event listener untuk submit formulir
+    contactForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Mencegah pengiriman formulir default
+
+        // Mengatur ulang pesan error dan status formulir setiap kali submit
+        resetFormMessages();
+
+        let isValid = true; // Flag untuk menentukan apakah formulir valid
+
+        // --- Validasi Input ---
+
+        // Validasi Nama Lengkap
+        if (nameInput.value.trim() === '') {
+            nameError.textContent = 'Nama lengkap tidak boleh kosong.';
+            isValid = false;
+        }
+
+        // Validasi Email
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (emailInput.value.trim() === '') {
+            emailError.textContent = 'Email tidak boleh kosong.';
+            isValid = false;
+        } else if (!emailPattern.test(emailInput.value.trim())) {
+            emailError.textContent = 'Format email tidak valid.';
+            isValid = false;
+        }
+
+        // Validasi Nomor Telepon (10-15 digit angka)
+        const phonePattern = /^[0-9]{10,15}$/;
+        if (phoneInput.value.trim() === '') {
+            phoneError.textContent = 'Nomor telepon tidak boleh kosong.';
+            isValid = false;
+        } else if (!phonePattern.test(phoneInput.value.trim())) {
+            phoneError.textContent = 'Nomor telepon harus antara 10 hingga 15 digit angka.';
+            isValid = false;
+        }
+
+        // Validasi Jenis Kelamin (Radio Buttons)
+        let selectedGender = '';
+        let isGenderSelected = false;
+        for (const radio of genderInputs) {
+            if (radio.checked) {
+                isGenderSelected = true;
+                selectedGender = radio.value;
+                break;
+            }
+        }
+        if (!isGenderSelected) {
+            // Jika radio button gender tidak dipilih, error akan muncul di formStatus umum
+            formStatus.textContent = 'Mohon pilih jenis kelamin.';
+            formStatus.classList.add('error', 'show'); // Tampilkan pesan error umum
+            isValid = false;
+        }
+
+        // Validasi Pesan
+        if (messageInput.value.trim() === '') {
+            messageError.textContent = 'Pesan tidak boleh kosong.';
+            isValid = false;
+        }
+
+        // --- Hasil Validasi Akhir ---
+        if (isValid) {
+            // Formulir valid
+            formStatus.textContent = 'Pesan Anda berhasil dikirim! Kami akan segera menghubungi Anda.';
+            formStatus.classList.add('success', 'show');
+
+            // Opsional: Kirim data ke server di sini (menggunakan fetch() atau XMLHttpRequest)
+            console.log('Formulir valid, siap dikirim!');
+            console.log('Nama:', nameInput.value);
+            console.log('Email:', emailInput.value);
+            console.log('Telepon:', phoneInput.value);
+            console.log('Jenis Kelamin:', selectedGender);
+            console.log('Pesan:', messageInput.value);
+
+            // Reset formulir setelah pengiriman sukses
+            contactForm.reset();
+
+            // Jika Anda ingin mengarahkan pengguna ke halaman 'terima-kasih.html', uncomment baris di bawah ini:
+            // window.location.href = 'terima-kasih.html';
+        } else {
+            // Formulir tidak valid
+            if (formStatus.textContent === '') { // Hanya set pesan jika belum diatur oleh validasi radio
+                formStatus.textContent = 'Mohon perbaiki kesalahan pada formulir.';
+            }
+            formStatus.classList.add('error', 'show');
+        }
+    });
+
+    // Fungsi untuk mengatur ulang pesan error dan status form
+    function resetFormMessages() {
+        nameError.textContent = '';
+        emailError.textContent = '';
+        phoneError.textContent = '';
+        messageError.textContent = '';
+        formStatus.textContent = '';
+        formStatus.classList.remove('success', 'error', 'show'); // Menghapus semua kelas terkait status
+        formStatus.classList.add('form-status'); // Pastikan kelas dasar tetap ada
+    }
+});
