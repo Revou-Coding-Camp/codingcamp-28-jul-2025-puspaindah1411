@@ -1,0 +1,113 @@
+/* Umum */
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0; /* Warna latar belakang abu-abu muda */
+  color: #333; /* Warna teks abu-abu gelap */
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+section {
+  padding: 40px 0;
+}
+
+.section-alt-bg {
+  background-color: #e11e1e; /* Warna latar belakang abu-abu terang */
+}
+
+h1, h2, h3 {
+  color: #4CAF50; /* Warna hijau judul */
+}
+
+/* Hero Banner */
+.hero-banner {
+  background-image: url('banner.jpg'); /* Ganti dengan gambar banner Anda */
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  padding: 100px 0;
+}
+
+.banner-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Tentang Perusahaan */
+#about img {
+  display: block;
+  margin: 20px auto;
+}
+
+/* Visi & Misi */
+.vm-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dua kolom */
+  grid-gap: 20px;
+}
+
+.vm-item {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Form Kontak */
+#contact form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+input[type="radio"] {
+  margin-right: 5px;
+}
+
+button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #333;
+  color: white;
+}
